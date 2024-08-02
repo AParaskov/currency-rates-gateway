@@ -5,7 +5,6 @@ import com.project.gateway.repository.StatisticsRepository;
 import com.project.gateway.service.db.StatisticsDbService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

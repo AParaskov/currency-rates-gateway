@@ -21,8 +21,10 @@ import java.time.ZoneId;
 public class RatesServiceImpl implements RatesService {
     @Value("${fixerio.url}")
     private String url;
+
     @Value("${fixerio.accessKey}")
     private String accessKey;
+
     private final RestTemplate restTemplate;
     private final HistoryDbService historyDbService;
     private final RateDbService rateDbService;
@@ -32,8 +34,7 @@ public class RatesServiceImpl implements RatesService {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
                 .queryParam("access_key", accessKey);
 
-        LatestCurrencyRateResponse response = restTemplate.getForObject(builder.toUriString(), LatestCurrencyRateResponse.class);
-        return response;
+        return restTemplate.getForObject(builder.toUriString(), LatestCurrencyRateResponse.class);
 
     }
 

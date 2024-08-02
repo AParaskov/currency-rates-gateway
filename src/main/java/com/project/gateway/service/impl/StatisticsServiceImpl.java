@@ -13,7 +13,7 @@ import com.project.gateway.model.dto.HistoryCurrencyRateDTO;
 import com.project.gateway.model.dto.json.response.HistoryCurrencyRateResponse;
 import com.project.gateway.model.dto.xml.request.CommandCurrencyRateRequest;
 import com.project.gateway.model.dto.xml.response.CommandCurrencyRateResponse;
-import com.project.gateway.producer.RabbitmqProducer;
+import com.project.gateway.producer.RabbitMqProducer;
 import com.project.gateway.service.StatisticsService;
 import com.project.gateway.service.db.HistoryDbService;
 import com.project.gateway.service.db.RateDbService;
@@ -35,7 +35,7 @@ public class StatisticsServiceImpl implements StatisticsService {
     private final StatisticsDbService statisticsDbService;
     private final HistoryDbService historyDbService;
     private final RateDbService rateDbService;
-    private final RabbitmqProducer producer;
+    private final RabbitMqProducer producer;
     private final ObjectMapper objectMapper;
     private final DateTimeFormatter formatter;
 
@@ -86,7 +86,7 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public CommandCurrencyRateResponse getCurrencyRateByCommand(String command, CommandCurrencyRateRequest request) {
         if (command.equals("HISTORY")) {
-            Long requestTimestamp = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli();
+            Long requestTimestamp = LocalDateTime.now(ZoneOffset.UTC).toInstant(ZoneOffset.UTC).toEpochMilli();
 
             List<History> timePeriodCurrencyRatesHistory = getTimePeriodCurrencyRatesHistory(requestTimestamp, request.getHistory().getPeriod());
 

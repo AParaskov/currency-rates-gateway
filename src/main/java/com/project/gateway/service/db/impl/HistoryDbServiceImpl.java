@@ -9,7 +9,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -17,7 +16,6 @@ import java.util.List;
 @Slf4j
 public class HistoryDbServiceImpl implements HistoryDbService {
     private final HistoryRepository historyRepository;
-    private final DateTimeFormatter formatter;
 
     @Override
     public History save(History history) {

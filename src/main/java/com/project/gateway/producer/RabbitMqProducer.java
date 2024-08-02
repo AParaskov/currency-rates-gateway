@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class RabbitmqProducer {
+public class RabbitMqProducer {
     @Value("${rabbitmq.exchange.name}")
     private String exchange;
 

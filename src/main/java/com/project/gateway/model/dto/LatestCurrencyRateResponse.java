@@ -1,6 +1,7 @@
 package com.project.gateway.model.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Builder
 public class LatestCurrencyRateResponse {
     private boolean success;
     private Long timestamp;
